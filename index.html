@@ -6,44 +6,44 @@
   <title>Progate</title>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
-<script>
-window.addEventListener('DOMContentLoaded', function(){
-
-  test-input = document.getElementById('test-input');
-  test-input.textContent = "henkou";
-  // (1) XMLHttpRequestオブジェクトを作成
-  const xhr = new XMLHttpRequest();
-
-  // (2) 取得するファイルの設定
-  xhr.open('get', './test.json');
-
-  // (3) リクエスト（要求）を送信
-  xhr.send();
-
-  xhr.onreadystatechange = function() {
-
-    // (4) 通信が正常に完了したか確認
-    if( xhr.readyState === 4 && xhr.status === 200) {
-
-      // (5) JSONファイルのデータをページに表示
-      const file_area = document.getElementById('file_area');
-      const json_data = JSON.parse(this.responseText);
-      const ul_element = document.createElement('ul');
-
-      for(var data of json_data) {
-        
-        const li_element = document.createElement('li');
-        li_element.textContent = data.title + " (リリース日：" + data.release_date + ")";
-
-        ul_element.appendChild(li_element);
+  <script>
+  window.addEventListener('DOMContentLoaded', function(){
+  
+    test-input = document.getElementById('test-input');
+    test-input.textContent = "henkou";
+    // (1) XMLHttpRequestオブジェクトを作成
+    const xhr = new XMLHttpRequest();
+  
+    // (2) 取得するファイルの設定
+    xhr.open('get', './test.json');
+  
+    // (3) リクエスト（要求）を送信
+    xhr.send();
+  
+    xhr.onreadystatechange = function() {
+  
+      // (4) 通信が正常に完了したか確認
+      if( xhr.readyState === 4 && xhr.status === 200) {
+  
+        // (5) JSONファイルのデータをページに表示
+        const file_area = document.getElementById('file_area');
+        const json_data = JSON.parse(this.responseText);
+        const ul_element = document.createElement('ul');
+  
+        for(var data of json_data) {
+          
+          const li_element = document.createElement('li');
+          li_element.textContent = data.title + " (リリース日：" + data.release_date + ")";
+  
+          ul_element.appendChild(li_element);
+        }
+  
+        file_area.appendChild(ul_element);
       }
-
-      file_area.appendChild(ul_element);
-    }
-  };
-});
-</script>
+    };
+  });
+  </script>
+</head>
 <body>
   <header>
     <div class="container">
