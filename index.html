@@ -10,6 +10,8 @@
 <script>
 window.addEventListener('DOMContentLoaded', function(){
 
+  test-input = document.getElementById('test-input');
+  test-input.textContent = "henkou";
   // (1) XMLHttpRequestオブジェクトを作成
   const xhr = new XMLHttpRequest();
 
@@ -58,6 +60,9 @@ window.addEventListener('DOMContentLoaded', function(){
   </header>
   <div class="top-wrapper">
     <div class="container">
+      <div id="test-input">
+        test
+      </div>
       <h1>LEARN TO CODE.<br>LEARN TO BE CREATIVE.</h1>
       <p>Progateはオンラインプログラミング学習サービスです。<br>初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。</p>
       <div class="btn-wrapper">
